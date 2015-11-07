@@ -108,3 +108,13 @@ SET NOCOUNT ON
 --		/* To update the currently configured value for this feature. */
 --			RECONFIGURE;
 --			GO
+
+/* Example */
+/* 
+	RESTORE DATABASE RestoredDatabaseName FROM DISK = 'V:\Backup\BackedupDatabaseName\BackedupDatabaseName_backup_20151106065621.BAK' WITH FILE = 1,  MOVE N'BackedupDatabaseName_Data' TO N'X:\DATA\RestoredDatabaseName.mdf', MOVE N'BackedupDatabaseName_Log' TO N'Y:\Logs\RestoredDatabaseName_1.ldf', NORECOVERY, REPLACE
+	RESTORE LOG RestoredDatabaseName FROM DISK = 'V:\Backup\BackedupDatabaseName\BackedupDatabaseName_tLog_20151106071501.TRN' WITH NORECOVERY
+	RESTORE LOG RestoredDatabaseName FROM DISK = 'V:\Backup\BackedupDatabaseName\BackedupDatabaseName_tLog_20151106073001.TRN' WITH NORECOVERY
+	RESTORE LOG RestoredDatabaseName FROM DISK = 'V:\Backup\BackedupDatabaseName\BackedupDatabaseName_tLog_20151106074500.TRN' WITH NORECOVERY
+	RESTORE LOG RestoredDatabaseName FROM DISK = 'V:\Backup\BackedupDatabaseName\BackedupDatabaseName_tLog_20151106080002.TRN' WITH NORECOVERY
+	RESTORE DATABASE RestoredDatabaseName WITH RECOVERY
+*/
